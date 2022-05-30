@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable name="viewModel" type="com.company.ipcclient.viewmodels.ChannelViewModel" />
+        <variable name="mainViewModel" type="com.company.ipcclient.viewmodels.ChannelListViewModel" />
+        <variable name="commandViewModel" type="com.company.ipcclient.viewmodels.CommandListViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/channelCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/card_corner_radius"
+        app:cardElevation="@dimen/card_elevation"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/padding">
+
+            <TextView
+                android:id="@+id/channel_num"
+                android:transitionName="channelId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_primary"
+                android:gravity="left"
+                android:textSize="@dimen/text_size"
+                android:text="@{@string/channelNum.concat(String.valueOf(viewModel.channel))}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/channel_description" />
+
+            <TextView
+                android:id="@+id/channel_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_primary"
+                android:gravity="left"
+                android:textSize="@dimen/text_size"
+                android:text="@{@string/channelDescription.concat(viewModel.description)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/channel_num" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

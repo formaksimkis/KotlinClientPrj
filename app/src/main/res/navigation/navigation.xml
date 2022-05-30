@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/channelList">
+
+    <fragment
+        android:id="@+id/channelList"
+        android:name="com.company.ipcclient.views.ChannelListFragment"
+        android:label="Channels"
+        tools:layout="@layout/channel_list_layout">
+        <argument
+            android:name="channelViewModel"
+            app:argType="com.company.ipcclient.viewmodels.ChannelViewModel" />
+        <action
+            android:id="@+id/action_channelList_to_commandList"
+            app:destination="@id/commandList" />
+        <action
+            android:id="@+id/action_channelList_to_logsList"
+            app:destination="@id/logs_list" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/commandList"
+        android:name="com.company.ipcclient.views.CommandListFragment"
+        android:label="Commands"
+        tools:layout="@layout/command_list_layout">
+        <argument
+            android:name="channelViewModel"
+            app:argType="com.company.ipcclient.viewmodels.ChannelViewModel" />
+        <action
+            android:id="@+id/action_commandList_to_propList"
+            app:destination="@id/propList" />
+        <action
+            android:id="@+id/action_commandList_to_logsList"
+            app:destination="@id/logs_list" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/propList"
+        android:name="com.company.ipcclient.views.CommandItemPropsFragment"
+        android:label="Properties"
+        tools:layout="@layout/props_list_layout">
+        <argument
+            android:name="commandViewModel"
+            app:argType="com.company.ipcclient.viewmodels.CommandViewModel" />
+        <action
+            android:id="@+id/action_propList_to_logsList"
+            app:destination="@id/logs_list" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/logs_list"
+        android:name="com.company.ipcclient.views.LogsJournalFragment"
+        android:label="Logs Journal"
+        tools:layout="@layout/logs_list_layout">
+    </fragment>
+</navigation>

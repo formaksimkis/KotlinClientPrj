@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+        <variable name="viewModel" type="com.company.ipcclient.viewmodels.ChannelListViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/waiting" layout="@layout/waiting_layout"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/channel_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{viewModel.isLoading ? View.GONE : View.VISIBLE}"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="1"
+            android:scrollbars="vertical"
+            android:scrollbarThumbVertical="@color/color_primary"
+            android:scrollbarSize="@dimen/scroll"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

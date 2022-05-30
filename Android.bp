@@ -1,0 +1,6 @@
+android_app_import {
+    name: "IPCClient",
+    apk: "apk/IPCClient.apk",
+    product_specific: true,
+    certificate: "platform",
+}

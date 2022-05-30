@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="propViewModel" type="com.company.ipcclient.viewmodels.PropsViewModel" />
+        <variable name="propListViewModel" type="com.company.ipcclient.viewmodels.PropsListViewModel" />
+        <variable name="commandModel" type="com.company.ipcclient.viewmodels.CommandViewModel" />
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/propCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/card_corner_radius"
+        app:cardElevation="@dimen/card_elevation"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/padding">
+
+            <TextView
+                android:id="@+id/command_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/color_primary"
+                android:textSize="@dimen/text_size"
+                android:text="@{@string/propertyName.concat(commandModel.name)}"
+                app:layout_constraintBottom_toTopOf="@id/prop_name"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/prop_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                app:layout_constraintBottom_toTopOf="@+id/prop_type"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/command_name"
+                android:textColor="@color/color_primary"
+                android:textSize="@dimen/text_size"
+                android:visibility="invisible"
+                android:text="@{@string/propName.concat(propViewModel.name)}" />
+
+            <TextView
+                android:id="@+id/prop_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/color_primary"
+                android:textSize="@dimen/text_size"
+                android:text="@{@string/propType.concat(propViewModel.type)}"
+                app:layout_constraintBottom_toTopOf="@id/switchPropState"
+                app:layout_constraintTop_toBottomOf="@id/prop_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Switch
+                android:id="@+id/switchPropState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/enable_disable"
+                android:textColor="@color/color_primary"
+                android:textSize="@dimen/text_size"
+                android:visibility="invisible"
+                android:checked="@={propViewModel.booleanCheckProp}"
+                app:layout_constraintBottom_toTopOf="@id/propValue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/prop_type" />
+
+            <EditText
+                android:id="@+id/propValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                app:layout_constraintBottom_toTopOf="@+id/propSubmit"
+                app:layout_constraintTop_toBottomOf="@+id/prop_type"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@={propViewModel.value}"
+                android:hint="@string/enterPropValue"
+                android:lines="1"
+                android:digits="@string/allowed_symbols"
+                android:inputType="text"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/propSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/submit"
+                android:gravity="center"
+                android:padding="@dimen/padding"
+                android:textSize="@dimen/text_size"
+                android:enabled="false"
+                android:layout_centerInParent="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/propValue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

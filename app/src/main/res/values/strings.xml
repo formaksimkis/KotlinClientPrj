@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">IPCClient</string>
+    <string name="home">Home</string>
+    <string name="logs">Logs journal</string>
+    <string name="command">input command</string>
+    <string name="send">send command</string>
+    <string name="enterPropValue">"Input prop value for bytes example: 208,0,1; for int32 input single integer"</string>
+    <string name="channelDescription">"Channel name: "</string>
+    <string name="channelNum">"Channel №: "</string>
+    <string name="commandName">"Command name: "</string>
+    <string name="propName">"Property name: "</string>
+    <string name="propType">"Property type: "</string>
+    <string name="propTypeRequest">"Property type: request"</string>
+    <string name="propertyName">"Property: "</string>
+    <string name="submit">Submit</string>
+    <string name="allowed_symbols">0123456789,</string>
+    <string name="enable_disable">disable / enable</string>
+    <string name="search_log">Search Log</string>
+</resources>

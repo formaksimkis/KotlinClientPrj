@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+        <variable name="viewModel" type="com.company.ipcclient.viewmodels.LogsListViewModel" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/searchLog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/layout_margin_search_log"
+            android:text="@={viewModel.MFilterString}"
+            android:hint="@string/search_log"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/text_size"
+            android:lines="1"
+            android:inputType="text"
+            android:imeOptions="actionDone"/>
+
+    <include
+        android:id="@+id/waiting" layout="@layout/waiting_layout"
+        android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/logs_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{viewModel.isLoading ? View.GONE : View.VISIBLE}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:spanCount="1"
+            android:scrollbars="vertical"
+            android:scrollbarThumbVertical="@color/color_primary"
+            android:scrollbarSize="@dimen/scroll" />
+    </LinearLayout>
+</layout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_corner_radius">8dp</dimen>
+    <dimen name="card_elevation">8dp</dimen>
+    <dimen name="layout_width">120dp</dimen>
+    <dimen name="layout_height">120dp</dimen>
+    <dimen name="text_size">30sp</dimen>
+    <dimen name="text_size_logs">20sp</dimen>
+    <dimen name="text_size_prop">40sp</dimen>
+    <dimen name="name_vertical_bias">1</dimen>
+    <dimen name="description_vertical_bias">0.5</dimen>
+    <dimen name="padding">10dp</dimen>
+    <dimen name="scroll">12dp</dimen>
+    <dimen name="layout_margin_search_log">10dp</dimen>
+</resources>
